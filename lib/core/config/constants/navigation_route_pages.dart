@@ -1,8 +1,10 @@
+import 'package:base_webview/app/features/home/home_bindings.dart';
+import 'package:base_webview/app/features/home/home_page.dart';
+import 'package:base_webview/app/features/network/network_bindings.dart';
+import 'package:base_webview/app/features/network/network_page.dart';
+import 'package:base_webview/core/components/unknown_view.dart';
+import 'package:base_webview/core/config/constants/navigation_routes.dart';
 import 'package:get/get.dart';
-import 'package:test_project/app/features/init/init_bindings.dart';
-import 'package:test_project/app/features/init/init_page.dart';
-import 'package:test_project/core/components/unknown_view.dart';
-import 'package:test_project/core/config/constants/navigation_routes.dart';
 
 class AppRouter {
   // Singleton instance
@@ -14,13 +16,18 @@ class AppRouter {
   List<GetPage<dynamic>> getPages() {
     return [
       GetPage(
-        name: RoutesName.INITIAL_ROUTE,
-        page: () => const InitPage(),
-        binding: InitBinding(),
-      ),
-      GetPage(
         name: RoutesName.UNKNOWN,
         page: () => const UnknownView(),
+      ),
+      GetPage(
+        name: RoutesName.NO_NETWORK,
+        page: () => const NoInternet(),
+        binding: NetworkBinding(),
+      ),
+      GetPage(
+        name: RoutesName.HOME,
+        page: () => const HomePage(),
+        binding: HomeBinding(),
       ),
     ];
   }

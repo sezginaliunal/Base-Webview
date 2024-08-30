@@ -4,13 +4,61 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Eğer dosya yükleme işlemleri var ise:
+ İmport et  = import 'package:file_picker/file_picker.dart';
 
-A few resources to get you started if this is your first Flutter project:
+ Bir servis sınıfı oluştur ve bu kodu ekle .
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   <!-- Future<List<String>> _androidFilePicker(FileSelectorParams params) async {
+    final result = await FilePicker.platform.pickFiles();
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    if (result != null && result.files.single.path != null) {
+      final file = File(result.files.single.path!);
+      return [file.uri.toString()];
+    }
+    return [];
+  }
+
+  void addFileSelectionListener(WebViewController controller) async {
+    if (Platform.isAndroid) {
+      final androidController = controller.platform as AndroidWebViewController;
+      await androidController.setOnShowFileSelector(_androidFilePicker);
+    }
+  } -->
+    <!-- Temel izinler -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Kamera ve ses ile ilgili izinler -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Depolama izinleri (Scoped Storage kullanıyorsanız gerekebilir) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Diğer izinler -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Reklam izni -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <!-- Kamera özelliği -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Uygulamanın özel dosya dizini -->
+    <files-path
+        name="internal_files"
+        path="." />
+
+    <!-- Uygulamanın önbellek dizini -->
+    <cache-path
+        name="cache_files"
+        path="." />
+
+    <!-- Belirli bir dizindeki dosyalar -->
+    <external-path
+        name="external_files"
+        path="Download/" />
+</paths> -->

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:test_project/core/config/constants/hive_boxes.dart';
-import 'package:test_project/core/config/theme/base_theme.dart';
+import 'package:base_webview/core/config/constants/hive_boxes.dart';
+import 'package:base_webview/core/config/theme/base_theme.dart';
 
 enum AppTheme { Light, Dark }
 
