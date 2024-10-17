@@ -7,7 +7,7 @@ class AppUrls {
 
   static final AppUrls _instance = AppUrls._privateConstructor();
 
-  static const String baseUrl = 'https://sezginaliunal.com/';
+  static const String baseUrl = 'https://github.com';
 
-  String getTodos() => '$baseUrl/todos';
+  // String getTodos() => '$baseUrl/todos';
 }

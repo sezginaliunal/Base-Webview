@@ -10,22 +10,27 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Obx(() {
-        if (controller.loading.value) {
-          return Center(
-            child: SizedBox(
-              width: 120,
-              child: LottieAssetManager(
-                lottiePath: LottieItems.loading.getPath(),
-              ),
-            ),
-          );
-        } else {
-          // Yükleme tamamlandıysa WebView'ı göster
-          return WebViewWidget(controller: controller.webViewController);
-        }
-      }),
+    return WillPopScope(
+      onWillPop: controller.handleWillPop,
+      child: SafeArea(
+        child: Scaffold(
+          body: Obx(() {
+            if (controller.loading.value) {
+              return Center(
+                child: SizedBox(
+                  width: Get.width / 3,
+                  child: LottieAssetManager(
+                    lottiePath: LottieItems.loading.getPath(),
+                  ),
+                ),
+              );
+            } else {
+              // Yükleme tamamlandıysa WebView'ı göster
+              return WebViewWidget(controller: controller.webViewController);
+            }
+          }),
+        ),
+      ),
     );
   }
 }
