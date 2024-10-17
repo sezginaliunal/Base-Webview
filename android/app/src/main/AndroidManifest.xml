@@ -1,5 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Depolama izinleri (Scoped Storage kullanıyorsanız gerekebilir) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Kamera özelliği -->
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
     <application
         android:label="base_webview"
         android:name="${applicationName}"
@@ -27,6 +36,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
     </application>
     <queries>
         <intent>
@@ -34,4 +44,5 @@
             <data android:mimeType="text/plain" />
         </intent>
     </queries>
+
 </manifest>

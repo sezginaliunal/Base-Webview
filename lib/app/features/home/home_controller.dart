@@ -18,14 +18,17 @@ class HomeController extends GetxController {
 
   Future<void> setWebViewController() async {
     loading.value = true;
-    _webViewController = WebViewController();
+    _webViewController = WebViewController(
+      onPermissionRequest: (request) async {
+        await request.grant();
+      },
+    );
 
     await _webViewController.setJavaScriptMode(JavaScriptMode.unrestricted);
 
     await _webViewController.setNavigationDelegate(
       NavigationDelegate(
         onNavigationRequest: goToNavigate,
-        onHttpError: print,
         onWebResourceError: _onWebResourceError,
       ),
     );
