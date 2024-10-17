@@ -9,22 +9,6 @@ Eğer dosya yükleme işlemleri var ise:
 
  Bir servis sınıfı oluştur ve bu kodu ekle .
 
-   <!-- Future<List<String>> _androidFilePicker(FileSelectorParams params) async {
-    final result = await FilePicker.platform.pickFiles();
-
-    if (result != null && result.files.single.path != null) {
-      final file = File(result.files.single.path!);
-      return [file.uri.toString()];
-    }
-    return [];
-  }
-
-  void addFileSelectionListener(WebViewController controller) async {
-    if (Platform.isAndroid) {
-      final androidController = controller.platform as AndroidWebViewController;
-      await androidController.setOnShowFileSelector(_androidFilePicker);
-    }
-  } -->
     <!-- Temel izinler -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
