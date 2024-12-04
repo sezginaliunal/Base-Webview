@@ -16,6 +16,7 @@ class HomeController extends GetxController {
     setWebViewController();
   }
 
+  //Webview init method
   Future<void> setWebViewController() async {
     loading.value = true;
     _webViewController = WebViewController(
@@ -36,8 +37,11 @@ class HomeController extends GetxController {
     await _webViewController.loadRequest(Uri.parse(AppUrls.baseUrl));
 
     loading.value = false;
+    //Eğer websitesinde  dosya yükleme işlemi var ise bunu aktif et
+    // await PlatformFile().addFileSelectionListener(_webViewController);
   }
 
+//Navigate işlemleri
   Future<NavigationDecision> goToNavigate(NavigationRequest request) async {
     if (!request.url.startsWith(AppUrls.baseUrl)) {
       await UrlLauncherHelper.goToUrl(request.url);
